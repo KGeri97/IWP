@@ -6,11 +6,22 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
     float elapsedTime;
+    float multipled;
+    public int multiplier;
 
+    void Start() {
+        multiplier = 1;
+    }
+
+   public void xMultiplier(int value)
+    {
+        multiplier = value;
+       
+    }
     // Update is called once per frame
     void Update()
     {
-        elapsedTime += Time.deltaTime;
+        elapsedTime += Time.deltaTime*multiplier;
         int minutes = Mathf.FloorToInt(elapsedTime / 60);
         int seconds = Mathf.FloorToInt(elapsedTime % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
