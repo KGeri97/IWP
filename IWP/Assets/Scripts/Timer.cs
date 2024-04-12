@@ -8,6 +8,8 @@ public class Timer : MonoBehaviour
     float elapsedTime;
     float multipled;
     public int multiplier;
+    int minutes;
+    int seconds;
 
     void Start() {
         multiplier = 1;
@@ -18,12 +20,14 @@ public class Timer : MonoBehaviour
         multiplier = value;
        
     }
-    // Update is called once per frame
-    void Update()
+    
+    void FixedUpdate()
     {
-        elapsedTime += Time.deltaTime*multiplier;
-        int minutes = Mathf.FloorToInt(elapsedTime / 60);
-        int seconds = Mathf.FloorToInt(elapsedTime % 60);
+        elapsedTime += Time.fixedDeltaTime*multiplier;
+        
+        minutes = Mathf.FloorToInt(elapsedTime / 60);
+        seconds = Mathf.FloorToInt(elapsedTime % 60);
+        
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
