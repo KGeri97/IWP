@@ -6,33 +6,42 @@ public class Node : MonoBehaviour
 {
     protected List<Transfer> _transfers;
     [SerializeField] protected List<Product> _products;
-    private GameManager _manager;
+    [SerializeField] private bool _available = true;
+    private MeshRenderer _renderer;
+
+    [SerializeField] Color _colorAvailable;
+    [SerializeField] Color _colorUnavailable;
+
+    [SerializeField] private GameObject _ui;
+
+    private void Awake() {
+        _renderer = GetComponent<MeshRenderer>();
+    }
 
     private void Start() {
-        _manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        _ui.GetComponent<Canvas>().worldCamera = Camera.main;
+    }
+
+    private void OnEnable() {
+        SelectionManager.OnObjectSelected += SetUIInactive;
+    }
+
+    private void OnDisable() {
+        SelectionManager.OnObjectSelected -= SetUIInactive;
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.T)) {
-            TestFunction();
-        }
-
-
-        if (Input.GetMouseButtonDown(0)) {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit)) {
-                Node selectedNode = hit.transform.gameObject.GetComponent<Node>();
-                if (selectedNode == this) {
-                    if (_manager.State == GameManager.GameState.Running) {
-                        Debug.Log("ASDAD");
-                    }
-                }
-            }
-        }
+        if (_available)
+            _renderer.material.color = _colorAvailable;
+        else
+            _renderer.material.color = _colorUnavailable;
     }
 
-    public virtual void TestFunction() {
-        Debug.Log("I am a node");
+    public virtual void SetUI(bool active) {
+        _ui.SetActive(active);
+    }
+
+    private void SetUIInactive(GameObject gameObject) {
+        _ui.SetActive(false);
     }
 }
