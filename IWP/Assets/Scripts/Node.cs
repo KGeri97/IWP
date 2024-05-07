@@ -44,4 +44,8 @@ public class Node : MonoBehaviour
     private void SetUIInactive(GameObject gameObject) {
         _ui.SetActive(false);
     }
+
+    public virtual void TestFunction(){ 
+    
+    }
 }
