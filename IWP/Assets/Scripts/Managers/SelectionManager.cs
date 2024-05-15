@@ -8,7 +8,8 @@ public class SelectionManager : MonoBehaviour
     public static SelectionManager Instance { get; private set; }
     [SerializeField] private LayerMask _selectableLayers;
 
-    public static event Action<GameObject> OnObjectSelected;
+    //public static event Action<GameObject> OnObjectSelected;
+    public static event Action<GameObject> OnNodeSelected;
 
     private void Start() {
         if (!Instance) {
@@ -26,8 +27,8 @@ public class SelectionManager : MonoBehaviour
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, 100f, _selectableLayers)) {
-                Debug.Log("Hit");
-                OnObjectSelected?.Invoke(hit.transform.gameObject);
+                if (hit.transform.gameObject.GetComponent<INode>() != null)
+                    OnNodeSelected?.Invoke(hit.transform.gameObject);
             }
         }
     }
