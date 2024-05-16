@@ -29,7 +29,8 @@ public class Node : MonoBehaviour, INode {
     }
 
     public void SetUI(bool active) {
-        _ui.SetActive(active);
+        if (GameManager.State == GameManager.GameState.Running)
+            _ui.SetActive(active);
     }
 
     public void SetUIInactive(GameObject gameObject) {

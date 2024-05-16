@@ -7,9 +7,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public enum GameState {
         Running,
+        PlacingTransfer
     }
 
-    public GameState State = GameState.Running;
+    public static GameState State = GameState.Running;
 
     private void Awake() {
         if (!Instance) {

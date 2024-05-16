@@ -21,6 +21,11 @@ public class Transfer : MonoBehaviour
 
     private void OnEnable() {
         SelectionManager.OnNodeSelected += SetEndNode;
+        SelectionManager.OnNothingSelected += CancelTransferCreation;
+    }
+
+    private void OnDisable() {
+        SelectionManager.OnNothingSelected -= CancelTransferCreation;
     }
 
     private void Start() {
@@ -46,14 +51,24 @@ public class Transfer : MonoBehaviour
         if (go != _startNode.gameObject) {
             _endNode = go.GetComponent<Node>();
             _startNode.AddOutboundTransfer(this);
-            _endNode.AddOutboundTransfer(this);
+            _endNode.AddIncomingTransfer(this);
             _lineRenderer.SetPosition(1, _endNode.transform.position);
             _transferTime = Vector3.Distance(_startNode.transform.position, _endNode.transform.position);
 
             _transferredProduct = Instantiate(_startNode.Products[0].gameObject, _startNode.transform.position, Quaternion.identity).GetComponent<Product>();
 
             SelectionManager.OnNodeSelected -= SetEndNode;
+            SelectionManager.OnNothingSelected -= CancelTransferCreation;
+
+            GameManager.State = GameManager.GameState.Running;
         }
     }
 
+    private void CancelTransferCreation() {
+        if (!_endNode) {
+            GameManager.State = GameManager.GameState.Running;
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
+        }
+    }
 }

@@ -10,6 +10,7 @@ public class SelectionManager : MonoBehaviour
 
     //public static event Action<GameObject> OnObjectSelected;
     public static event Action<GameObject> OnNodeSelected;
+    public static event Action OnNothingSelected;
 
     private void Start() {
         if (!Instance) {
@@ -29,7 +30,11 @@ public class SelectionManager : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100f, _selectableLayers)) {
                 if (hit.transform.gameObject.GetComponent<INode>() != null)
                     OnNodeSelected?.Invoke(hit.transform.gameObject);
+
+                return;
             }
+
+            OnNothingSelected?.Invoke();
         }
     }
 }
