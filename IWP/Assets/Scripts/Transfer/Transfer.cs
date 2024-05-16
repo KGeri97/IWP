@@ -7,11 +7,28 @@ public class Transfer : MonoBehaviour
 {
     [SerializeField] private Node _startNode;
     public Node StartNode { get { return _startNode; } set { _startNode = value; } }
-    [SerializeField] private Node _endNode;
-    [SerializeField] private Product _transferredProduct;
+    [SerializeField]
+    private Node _endNode;
+    [SerializeField]
+    private Product _transferredProduct;
+    public Product TransferredProduct { get { return _transferredProduct; } set { _transferredProduct = value; } }
     private float _transferTime;
     private LineRenderer _lineRenderer;
-    [SerializeField] private LayerMask _raycastLayermask;
+    [SerializeField]
+    private LayerMask _raycastLayermask;
+    public class ProductProgress {
+        public ProductProgress(Product product) {
+            Product = product;
+            Progress = 0;
+        }
+
+        public Product Product { get; }
+        public float Progress;
+
+    }
+
+
+    private List<ProductProgress> _productsInTransfer = new();
 
     private float _elapsedTime = 0;
 
@@ -40,10 +57,9 @@ public class Transfer : MonoBehaviour
                 _lineRenderer.SetPosition(1, hit.point + Vector3.up * _startNode.transform.position.y);
             }
         }
-        else {
-            _transferredProduct.transform.position = Vector3.Lerp(_startNode.transform.position, _endNode.transform.position, _elapsedTime / _transferTime);
-            //_lineRenderer.colorGradient = gradient;
-            _elapsedTime += Time.deltaTime;
+
+        if (_productsInTransfer.Count > 0) {
+            MoveProducts();
         }
     }
 
@@ -55,12 +71,14 @@ public class Transfer : MonoBehaviour
             _lineRenderer.SetPosition(1, _endNode.transform.position);
             _transferTime = Vector3.Distance(_startNode.transform.position, _endNode.transform.position);
 
-            _transferredProduct = Instantiate(_startNode.Products[0].gameObject, _startNode.transform.position, Quaternion.identity).GetComponent<Product>();
-
             SelectionManager.OnNodeSelected -= SetEndNode;
             SelectionManager.OnNothingSelected -= CancelTransferCreation;
 
             GameManager.State = GameManager.GameState.Running;
+
+            ManufacturingLine manufacturingLine = new(TransferredProduct, 3f, 3, this);
+            manufacturingLine.StartProduction();
+            _startNode.AddManufacturingLine(manufacturingLine);
         }
     }
 
@@ -70,5 +88,16 @@ public class Transfer : MonoBehaviour
             //Destroy(gameObject);
             gameObject.SetActive(false);
         }
+    }
+
+    private void MoveProducts() {
+        foreach (ProductProgress package in _productsInTransfer) {
+            package.Product.transform.position = Vector3.Lerp(_startNode.transform.position, _endNode.transform.position, package.Progress / _transferTime);
+            package.Progress += Time.deltaTime;
+        }
+    }
+
+    public void AddProductToDeliver(Product product) {
+        _productsInTransfer.Add(new(product));
     }
 }

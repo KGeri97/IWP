@@ -8,6 +8,7 @@ public class Node : MonoBehaviour, INode {
     public List<Product> Products;
     protected List<Transfer> _transfersOutbound = new();
     protected List<Transfer> _transfersIncoming = new();
+    protected List<ManufacturingLine> _manufacturingLines = new();
 
     [SerializeField]
     private bool _available = true;
@@ -26,6 +27,10 @@ public class Node : MonoBehaviour, INode {
 
     private void OnDisable() {
         SelectionManager.OnNodeSelected -= SetUIInactive;
+    }
+
+    private void Update() {
+        UpdateManufacturingLines();
     }
 
     public void SetUI(bool active) {
@@ -48,5 +53,18 @@ public class Node : MonoBehaviour, INode {
 
     public void AddOutboundTransfer(Transfer transfer) {
         _transfersOutbound.Add(transfer);
+    }
+
+    private void UpdateManufacturingLines() {
+        if (_manufacturingLines.Count == 0)
+            return;
+
+        foreach (ManufacturingLine manufacturingline in _manufacturingLines) {
+            manufacturingline.Update();
+        }
+    }
+
+    public void AddManufacturingLine(ManufacturingLine manufacturingLine) {
+        _manufacturingLines.Add(manufacturingLine);
     }
 }
