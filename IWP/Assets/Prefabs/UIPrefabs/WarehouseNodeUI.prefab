@@ -446,8 +446,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transferPrefab: {fileID: 4368501040925132359, guid: 67506475d6941424dae05912f542660d, type: 3}
   _transferParent: {fileID: 0}
-  warehouseInformationText: {fileID: 0}
-  warehouseProductIcon: {fileID: 0}
+  warehouseInformationText: {fileID: 6263857964953446703}
+  warehouseProductIcon: {fileID: 6263857964552551591}
 --- !u!1 &6263857964496412533
 GameObject:
   m_ObjectHideFlags: 0

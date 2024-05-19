@@ -1109,7 +1109,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5409335400087818375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1141,4 +1141,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transferPrefab: {fileID: 4368501040925132359, guid: 67506475d6941424dae05912f542660d, type: 3}
   _transferParent: {fileID: 0}
-  shopInformationText: {fileID: 0}
+  shopInformationText: {fileID: 4625034162659583261}
