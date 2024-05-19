@@ -123,8 +123,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BaseUI, Assembly-CSharp
+      - m_Target: {fileID: 3811365907391857724}
+        m_TargetAssemblyTypeName: BaseNodeUI, Assembly-CSharp
         m_MethodName: CloseUI
         m_Mode: 1
         m_Arguments:
@@ -277,8 +277,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BaseUI, Assembly-CSharp
+      - m_Target: {fileID: 3811365907391857724}
+        m_TargetAssemblyTypeName: BaseNodeUI, Assembly-CSharp
         m_MethodName: AddTransfer
         m_Mode: 1
         m_Arguments:
@@ -1062,8 +1062,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transferPrefab: {fileID: 4368501040925132359, guid: 67506475d6941424dae05912f542660d, type: 3}
   _transferParent: {fileID: 0}
-  text: {fileID: 3811365906882678468}
-  image: {fileID: 3811365907019340620}
+  refineryInfomationText: {fileID: 0}
+  refineryProductIcon: {fileID: 0}
 --- !u!1 &3811365907495613253
 GameObject:
   m_ObjectHideFlags: 0

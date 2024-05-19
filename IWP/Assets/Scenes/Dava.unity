@@ -759,6 +759,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &3811365907427524781 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5453670305964992360, guid: 0037c5dac031c4e4a94d2b6f37ea9efc, type: 3}
+  m_PrefabInstance: {fileID: 9172677021474695109}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3811365907427524782 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5453670305964992363, guid: 0037c5dac031c4e4a94d2b6f37ea9efc, type: 3}
@@ -837,7 +842,7 @@ MonoBehaviour:
   Products:
   - {fileID: -902761925879033305, guid: 2169a1fe9d61ac745ac3afd609473b73, type: 3}
   _available: 1
-  _ui: {fileID: 0}
+  _ui: {fileID: 3811365907427524781}
 --- !u!4 &8706794425109634485
 Transform:
   m_ObjectHideFlags: 0
@@ -866,6 +871,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AssemblyNodeUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5453670305964992360, guid: 0037c5dac031c4e4a94d2b6f37ea9efc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453670305964992362, guid: 0037c5dac031c4e4a94d2b6f37ea9efc, type: 3}
+      propertyPath: _transferParent
+      value: 
+      objectReference: {fileID: 1950027512248304997}
     - target: {fileID: 5453670305964992363, guid: 0037c5dac031c4e4a94d2b6f37ea9efc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -950,12 +963,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5453670305964992364, guid: 0037c5dac031c4e4a94d2b6f37ea9efc, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5453670306062268436, guid: 0037c5dac031c4e4a94d2b6f37ea9efc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5453670307169560602, guid: 0037c5dac031c4e4a94d2b6f37ea9efc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3811365907427524781}
+    - target: {fileID: 5453670307169560602, guid: 0037c5dac031c4e4a94d2b6f37ea9efc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5453670307321746285, guid: 0037c5dac031c4e4a94d2b6f37ea9efc, type: 3}

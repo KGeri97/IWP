@@ -1141,4 +1141,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transferPrefab: {fileID: 4368501040925132359, guid: 67506475d6941424dae05912f542660d, type: 3}
   _transferParent: {fileID: 0}
-  text: {fileID: 4625034162659583261}
+  shopInformationText: {fileID: 0}
