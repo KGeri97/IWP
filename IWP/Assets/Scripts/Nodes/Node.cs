@@ -9,6 +9,7 @@ public class Node : MonoBehaviour, INode {
     protected List<Transfer> _transfersOutbound = new();
     protected List<Transfer> _transfersIncoming = new();
     protected List<ManufacturingLine> _manufacturingLines = new();
+    protected List<Product> _inventory = new();
 
     [SerializeField]
     private bool _available = true;
@@ -17,16 +18,16 @@ public class Node : MonoBehaviour, INode {
     [SerializeField]
     private GameObject _ui;
 
-    private void Start() {
-        _ui.GetComponent<Canvas>().worldCamera = Camera.main;
-    }
-
     private void OnEnable() {
         SelectionManager.OnNodeSelected += SetUIInactive;
     }
 
     private void OnDisable() {
         SelectionManager.OnNodeSelected -= SetUIInactive;
+    }
+
+    private void Start() {
+        _ui.GetComponent<Canvas>().worldCamera = Camera.main;
     }
 
     private void Update() {
@@ -62,6 +63,11 @@ public class Node : MonoBehaviour, INode {
         foreach (ManufacturingLine manufacturingline in _manufacturingLines) {
             manufacturingline.Update();
         }
+    }
+
+    public void AddToInventory(Product product) {
+        _inventory.Add(product);
+        Debug.Log(_inventory.Count);
     }
 
     public void AddManufacturingLine(ManufacturingLine manufacturingLine) {
