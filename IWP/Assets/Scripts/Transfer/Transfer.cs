@@ -76,7 +76,7 @@ public class Transfer : MonoBehaviour
 
             GameManager.State = GameManager.GameState.Running;
 
-            ManufacturingLine manufacturingLine = new(TransferredProduct, 3f, 3, this);
+            ManufacturingLine manufacturingLine = new(TransferredProduct, 3f, Quality.Perfect, 3, this);
             manufacturingLine.StartProduction();
             _startNode.AddManufacturingLine(manufacturingLine);
         }
@@ -91,9 +91,19 @@ public class Transfer : MonoBehaviour
     }
 
     private void MoveProducts() {
+        List<ProductProgress> productsToRemove = new();
         foreach (ProductProgress package in _productsInTransfer) {
+            if (package.Progress / _transferTime >= 1) {
+                _endNode.AddToInventory(package.Product);
+                productsToRemove.Add(package);
+            }
+
             package.Product.transform.position = Vector3.Lerp(_startNode.transform.position, _endNode.transform.position, package.Progress / _transferTime);
             package.Progress += Time.deltaTime;
+        }
+
+        foreach (ProductProgress package in productsToRemove) {
+            _productsInTransfer.Remove(package);
         }
     }
 
