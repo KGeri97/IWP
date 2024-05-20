@@ -30,6 +30,7 @@ public class NodeUI : MonoBehaviour
     public void AddTransfer() {
         Transfer transfer = Instantiate(_transferPrefab, transform.parent.position, Quaternion.identity, _transferParent);
         transfer.StartNode = _node;
+        transfer.TransferredProduct = _node.Products[0];
         GameManager.State = GameManager.GameState.PlacingTransfer;
         CloseUI();
     }
