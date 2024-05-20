@@ -28,8 +28,8 @@ public class SelectionManager : MonoBehaviour
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, 100f, _selectableLayers)) {
-                if (hit.transform.gameObject.GetComponent<INode>() != null)
-                    OnNodeSelected?.Invoke(hit.transform.gameObject);
+                if (hit.transform.parent.gameObject.GetComponent<INode>() != null)
+                    OnNodeSelected?.Invoke(hit.transform.parent.gameObject);
 
                 return;
             }
