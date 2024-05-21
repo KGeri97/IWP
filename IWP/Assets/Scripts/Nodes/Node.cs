@@ -10,6 +10,7 @@ public class Node : MonoBehaviour, INode {
     protected List<Transfer> _transfersIncoming = new();
     protected List<ManufacturingLine> _manufacturingLines = new();
     protected List<Product> _inventory = new();
+    public List<Product> Inventory { get { return _inventory; }}
 
     [SerializeField]
     private bool _available = true;

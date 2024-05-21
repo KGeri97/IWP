@@ -27,7 +27,7 @@ public class BaseNodeUI : MonoBehaviour
         _initialOrthographicSize = _camera.orthographicSize;
     }
 
-    void Update()
+    protected void Update()
     {
         ScaleUIWithCamera();
     }

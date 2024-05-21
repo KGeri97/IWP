@@ -10,6 +10,11 @@ public class WarehouseNodeUI : BaseNodeUI
     public TMP_Text warehouseInformationText;
     public Image warehouseProductIcon;
 
+    private void Update() {
+        base.Update();
+        UpdateWarehouseText(transform.parent.GetComponent<Node>().Products[0].name, transform.parent.GetComponent<Node>().Inventory.Count.ToString());
+    }
+
     public void UpdateWarehouseText(string productType, string productAmount)
     {
         warehouseInformationText.text = $"The warehouse is holding: {productType}." +

@@ -1061,6 +1061,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6263857964397601756, guid: 85765594ad8e4bc47b025df358d003c9, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6263857964397601758, guid: 85765594ad8e4bc47b025df358d003c9, type: 3}
       propertyPath: _transferParent
       value: 
@@ -1068,10 +1072,14 @@ PrefabInstance:
     - target: {fileID: 6263857964552551588, guid: 85765594ad8e4bc47b025df358d003c9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4269625179600116820}
+      objectReference: {fileID: 9076091753186619594}
     - target: {fileID: 6263857964552551588, guid: 85765594ad8e4bc47b025df358d003c9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: ToggleManufacturingLine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6263857964552551588, guid: 85765594ad8e4bc47b025df358d003c9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Node, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85765594ad8e4bc47b025df358d003c9, type: 3}
