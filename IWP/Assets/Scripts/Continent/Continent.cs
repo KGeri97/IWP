@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 /// <summary>
@@ -16,6 +17,7 @@ public class Continent : MonoBehaviour
     private List<GameObject> _ownedBuildings = new List<GameObject>();
     [SerializeField] private GameObject _panel;
     private SpriteRenderer _spriteRenderer;
+    private LayerMask _uiLayer = 5;
 
     void Start()
     {
@@ -47,7 +49,7 @@ public class Continent : MonoBehaviour
     {
         _spriteRenderer.color = Color.green;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !IsPointerOverUIElement())
         {
             _panel.SetActive(!_panel.activeSelf);
         }
@@ -56,5 +58,10 @@ public class Continent : MonoBehaviour
     void OnMouseExit()
     {
         _spriteRenderer.color = Color.white;
+    }
+    
+    private bool IsPointerOverUIElement()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
     }
 }
