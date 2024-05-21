@@ -29,7 +29,7 @@ public class BaseNodeUI : MonoBehaviour
 
     protected void Update()
     {
-        ScaleUIWithCamera();
+        //ScaleUIWithCamera();
     }
 
     private void SetEventCamera()

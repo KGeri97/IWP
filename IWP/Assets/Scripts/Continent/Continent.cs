@@ -47,6 +47,12 @@ public class Continent : MonoBehaviour
 
     void OnMouseOver()
     {
+        if (IsPointerOverUIElement())
+        {
+            _spriteRenderer.color = Color.white;
+            return;
+        }
+        
         _spriteRenderer.color = Color.green;
 
         if (Input.GetMouseButtonDown(0) && !IsPointerOverUIElement())

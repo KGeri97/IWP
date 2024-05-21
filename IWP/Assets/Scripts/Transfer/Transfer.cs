@@ -54,7 +54,7 @@ public class Transfer : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100, _raycastLayermask)) {
-                _lineRenderer.SetPosition(1, hit.point + Vector3.up * _startNode.transform.position.y);
+                _lineRenderer.SetPosition(1, hit.point/* + Vector3.up * _startNode.transform.position.y*/);
             }
         }
 
