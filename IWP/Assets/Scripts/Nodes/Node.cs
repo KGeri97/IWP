@@ -10,6 +10,7 @@ public class Node : MonoBehaviour, INode {
     protected List<Transfer> _transfersIncoming = new();
     protected List<ManufacturingLine> _manufacturingLines = new();
     protected List<Product> _inventory = new();
+    public List<Product> Inventory { get { return _inventory; }}
 
     [SerializeField]
     private bool _available = true;
@@ -34,12 +35,12 @@ public class Node : MonoBehaviour, INode {
         UpdateManufacturingLines();
     }
 
-    public void SetUI(bool active) {
+    public virtual void SetUI(bool active) {
         if (GameManager.State == GameManager.GameState.Running)
             _ui.SetActive(active);
     }
 
-    public void SetUIInactive(GameObject gameObject) {
+    public virtual void SetUIInactive(GameObject gameObject) {
         if (gameObject == this.gameObject) {
             SetUI(true);
         }
@@ -48,15 +49,15 @@ public class Node : MonoBehaviour, INode {
         }
     }
 
-    public void AddIncomingTransfer(Transfer transfer) {
+    public virtual void AddIncomingTransfer(Transfer transfer) {
         _transfersIncoming.Add(transfer);
     }
 
-    public void AddOutboundTransfer(Transfer transfer) {
+    public virtual void AddOutboundTransfer(Transfer transfer) {
         _transfersOutbound.Add(transfer);
     }
 
-    private void UpdateManufacturingLines() {
+    public virtual void UpdateManufacturingLines() {
         if (_manufacturingLines.Count == 0)
             return;
 
@@ -65,12 +66,24 @@ public class Node : MonoBehaviour, INode {
         }
     }
 
-    public void AddToInventory(Product product) {
+    public virtual void AddToInventory(Product product) {
         _inventory.Add(product);
         Debug.Log(_inventory.Count);
     }
 
     public void AddManufacturingLine(ManufacturingLine manufacturingLine) {
         _manufacturingLines.Add(manufacturingLine);
+    }
+
+    public virtual void ToggleManufacturingLine() {
+        if (_manufacturingLines.Count == 0)
+            return;
+
+        ManufacturingLine ml = _manufacturingLines[0];
+
+        if (ml.IsProducing)
+            ml.StopProduction();
+        else
+            ml.StartProduction();
     }
 }

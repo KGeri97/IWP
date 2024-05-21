@@ -26,12 +26,16 @@ public class ManufacturingLine {
     private int _waitingToBeDispatched;
     private Quality _quality;
     private int _batchesProduced = 0;
+    private bool _isProducing;
+    public bool IsProducing { get { return _isProducing; } private set { } }
 
     public void StartProduction() {
+        _isProducing = true;
         _productionTimer.Start();
     }
 
     public void StopProduction() {
+        _isProducing = false;
         _productionTimer.Reset();
     }
 

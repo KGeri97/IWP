@@ -27,7 +27,7 @@ public class BaseNodeUI : MonoBehaviour
         _initialOrthographicSize = _camera.orthographicSize;
     }
 
-    void Update()
+    protected void Update()
     {
         ScaleUIWithCamera();
     }
@@ -60,6 +60,7 @@ public class BaseNodeUI : MonoBehaviour
     {
         Transfer transfer = Instantiate(_transferPrefab, transform.parent.position, Quaternion.identity, _transferParent);
         transfer.StartNode = _node;
+        transfer.TransferredProduct = _node.Products[0];
         GameManager.State = GameManager.GameState.PlacingTransfer;
         CloseUI();
     }
