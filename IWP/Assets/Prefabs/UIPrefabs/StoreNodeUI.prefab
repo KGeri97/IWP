@@ -1039,7 +1039,7 @@ GameObject:
   - component: {fileID: 5409335400087818375}
   - component: {fileID: 4368955668202836540}
   m_Layer: 5
-  m_Name: ShopNodeUI
+  m_Name: StoreNodeUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
