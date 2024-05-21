@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class ShopNodeUI : BaseNodeUI
+public class StoreNodeUI : BaseNodeUI
 {
     public TMP_Text shopInformationText;
 
@@ -16,6 +16,6 @@ public class ShopNodeUI : BaseNodeUI
 
     public void UpdateShopUIText(string profitAmount)
     {
-        shopInformationText.text = $"The shop is currently earning you: {profitAmount}";
+        shopInformationText.text = $"The store is currently earning you: {profitAmount}";
     }
 }
