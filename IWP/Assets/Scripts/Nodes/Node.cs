@@ -9,8 +9,8 @@ public class Node : MonoBehaviour, INode {
     protected List<Transfer> _transfersOutbound = new();
     protected List<Transfer> _transfersIncoming = new();
     protected List<ManufacturingLine> _manufacturingLines = new();
-    protected List<Product> _inventory = new();
-    public List<Product> Inventory { get { return _inventory; }}
+    protected Inventory _inventory = new();
+    public Inventory Inventory { get { return _inventory; }}
 
     [SerializeField]
     private bool _available = true;
@@ -67,8 +67,8 @@ public class Node : MonoBehaviour, INode {
     }
 
     public virtual void AddToInventory(Product product) {
-        _inventory.Add(product);
-        Debug.Log(_inventory.Count);
+        _inventory.AddItem(product);
+        Debug.Log(_inventory.GetQuantityOfProduct(product));
     }
 
     public void AddManufacturingLine(ManufacturingLine manufacturingLine) {
