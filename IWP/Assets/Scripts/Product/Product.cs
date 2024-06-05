@@ -18,3 +18,4 @@ public enum Quality {
     Good,
     Perfect
 }
+
