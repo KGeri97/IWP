@@ -10,6 +10,8 @@ public class BuilidingManager : MonoBehaviour
     [SerializeField] private List<GameObject> _buildings = new List<GameObject>();
     [SerializeField] private List<GameObject> _spawnLocations = new List<GameObject>();
     private List<GameObject> _ownedBuildings = new List<GameObject>();
+
+    public Material selectedMaterial, previousMaterial;
         
     public GameObject buildingPanelUI;
     public Image buildingButtonImage;
@@ -46,7 +48,13 @@ public class BuilidingManager : MonoBehaviour
             SphereCollider sphereCollider = hit.collider.GetComponent<SphereCollider>();
             if (sphereCollider != null && _spawnLocations.Contains(hit.collider.gameObject))
             {
+                if (_currentSpawnLocationChosen != null)
+                {
+                    _currentSpawnLocationChosen.GetComponent<MeshRenderer>().material = previousMaterial;
+                }
+                
                 _currentSpawnLocationChosen = hit.collider.gameObject;
+                _currentSpawnLocationChosen.GetComponent<MeshRenderer>().material = selectedMaterial;
                 ToggleBuildingPanelUI(true);
             }
         }
@@ -63,6 +71,7 @@ public class BuilidingManager : MonoBehaviour
             _spawnLocations.Remove(_currentSpawnLocationChosen);
             _currentSpawnLocationChosen.SetActive(false);
             ToggleBuildingPanelUI(false);
+            _currentSpawnLocationChosen = null;
         }
     }
 
@@ -91,6 +100,13 @@ public class BuilidingManager : MonoBehaviour
         else
         {
             buildingButtonImage.color = Color.gray;
+            _currentSpawnLocationChosen.GetComponent<MeshRenderer>().material = previousMaterial;
+            _currentSpawnLocationChosen = null;
         }
+    }
+
+    public void CloseUI()
+    {
+        ToggleBuildingPanelUI(false);
     }
 }

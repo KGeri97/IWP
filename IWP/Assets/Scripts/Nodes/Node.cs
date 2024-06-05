@@ -28,7 +28,6 @@ public class Node : MonoBehaviour, INode {
         _ui.GetComponent<Canvas>().worldCamera = Camera.main;
     }
 
-
     public void SetUI(bool active) {
         if (GameManager.State == GameManager.GameState.Running)
             _ui.SetActive(active);
@@ -50,8 +49,6 @@ public class Node : MonoBehaviour, INode {
     public void AddOutboundTransfer(Transfer transfer) {
         _transfersOutbound.Add(transfer);
     }
-
-   
 
     public void AddToInventory(Product product) {
         _inventory.AddItem(product);
