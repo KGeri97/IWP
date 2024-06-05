@@ -10,7 +10,7 @@ public class Transfer : MonoBehaviour
     [SerializeField]
     private Node _endNode;
     public Node EndNode { get { return _endNode; } set { _endNode = value; } }
-    private ProductType _transferredProductType;
+    private ProductType _transferredProductType = ProductType.KnifeHandle;
     public ProductType TransferredProductType { get { return _transferredProductType; } set { _transferredProductType = value; } }
     [SerializeField]
     private float _transferTime;
@@ -100,6 +100,7 @@ public class Transfer : MonoBehaviour
 
         foreach (ProductProgress package in productsToRemove) {
             _productsInTransfer.Remove(package);
+            Destroy(package.Product.gameObject);
         }
     }
 

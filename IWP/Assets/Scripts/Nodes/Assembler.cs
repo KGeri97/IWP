@@ -22,8 +22,8 @@ public class Assembler : Node {
         StartProduction();
     }
 
-
-    private void Update() {
+    public override void Update() {
+        base.Update();
         _productionTimer.Update();
     }
 

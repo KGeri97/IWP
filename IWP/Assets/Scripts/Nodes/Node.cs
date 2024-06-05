@@ -42,6 +42,10 @@ public class Node : MonoBehaviour, INode {
         _ui.GetComponent<Canvas>().worldCamera = Camera.main;
     }
 
+    public virtual void Update() {
+        _itemDispatchTimer.Update();
+    }
+
 
     public void SetUI(bool active) {
         if (GameManager.State == GameManager.GameState.Running)
@@ -71,12 +75,16 @@ public class Node : MonoBehaviour, INode {
     }
 
     private void SendItem() {
+        Debug.Log($"{_transfersOutbound.Count}");
         for (int i = 0; i < _transfersOutbound.Count; i++) {
             Transfer transfer = _transfersOutbound[_outboundTransferIterator];
             ProductType productType = transfer.TransferredProductType;
 
             if (_inventory.GetQuantityOfProduct(productType) > 0) {
-                transfer.AddProductToDeliver(_inventory.TakeAnItem(productType));
+                Product product = Instantiate(_inventory.TakeAnItem(productType), transform.position, Quaternion.identity, transfer.transform) ;
+
+                transfer.AddProductToDeliver(product);
+                Debug.Log($"Item is sent");
             }
 
             _outboundTransferIterator++;

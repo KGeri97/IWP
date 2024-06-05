@@ -25,7 +25,7 @@ public class Inventory
 
     public void AddItem(Product product) {
         if (!_stock.ContainsKey(product.Type)) {
-            Debug.Log("The product key does not exist");
+            //Debug.Log("The product key does not exist");
             _stock.Add(product.Type, new());
         }
 
