@@ -6,11 +6,10 @@ public class Product : MonoBehaviour {
 
     public Quality ProductQuality { get; private set; }
 
-    public ProductType Type { get; private set; }
+    [SerializeField]
+    private ProductType _type;
 
-    private void Awake() {
-        Type = ProductType.Money;
-    }
+    public ProductType Type { get { return _type; } }
 
     public void SetProductProperties(Quality quality) {
         ProductQuality = quality;
