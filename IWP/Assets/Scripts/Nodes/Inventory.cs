@@ -33,7 +33,11 @@ public class Inventory
         if (_stock[product.Type].Count == 0)
             return null;
 
-        return _stock[product.Type].Dequeue();
+        Product itemTaken = _stock[product.Type].Dequeue();
+
+        RemoveKeyIfEmpty(product);
+
+        return itemTaken;
     }
 
     public List<Product> TakeItems(Product product, int numberOfItems) {
@@ -49,6 +53,14 @@ public class Inventory
             takenItems.Add(_stock[product.Type].Dequeue());
         }
 
+        RemoveKeyIfEmpty(product);
+
         return takenItems;
+    }
+
+    private void RemoveKeyIfEmpty(Product product) {
+        if (_stock[product.Type].Count == 0) {
+            _stock.Remove(product.Type);
+        }
     }
 }

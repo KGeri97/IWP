@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class Node : MonoBehaviour, INode {
 
-    [SerializeField] 
-    public List<Product> Products;
     protected List<Transfer> _transfersOutbound = new();
     protected List<Transfer> _transfersIncoming = new();
-    protected List<ManufacturingLine> _manufacturingLines = new();
     protected Inventory _inventory = new();
     public Inventory Inventory { get { return _inventory; }}
 
@@ -31,16 +28,13 @@ public class Node : MonoBehaviour, INode {
         _ui.GetComponent<Canvas>().worldCamera = Camera.main;
     }
 
-    private void Update() {
-        UpdateManufacturingLines();
-    }
 
-    public virtual void SetUI(bool active) {
+    public void SetUI(bool active) {
         if (GameManager.State == GameManager.GameState.Running)
             _ui.SetActive(active);
     }
 
-    public virtual void SetUIInactive(GameObject gameObject) {
+    public void SetUIInactive(GameObject gameObject) {
         if (gameObject == this.gameObject) {
             SetUI(true);
         }
@@ -49,41 +43,18 @@ public class Node : MonoBehaviour, INode {
         }
     }
 
-    public virtual void AddIncomingTransfer(Transfer transfer) {
+    public void AddIncomingTransfer(Transfer transfer) {
         _transfersIncoming.Add(transfer);
     }
 
-    public virtual void AddOutboundTransfer(Transfer transfer) {
+    public void AddOutboundTransfer(Transfer transfer) {
         _transfersOutbound.Add(transfer);
     }
 
-    public virtual void UpdateManufacturingLines() {
-        if (_manufacturingLines.Count == 0)
-            return;
+   
 
-        foreach (ManufacturingLine manufacturingline in _manufacturingLines) {
-            manufacturingline.Update();
-        }
-    }
-
-    public virtual void AddToInventory(Product product) {
+    public void AddToInventory(Product product) {
         _inventory.AddItem(product);
-        Debug.Log(_inventory.GetQuantityOfProduct(product));
-    }
-
-    public void AddManufacturingLine(ManufacturingLine manufacturingLine) {
-        _manufacturingLines.Add(manufacturingLine);
-    }
-
-    public virtual void ToggleManufacturingLine() {
-        if (_manufacturingLines.Count == 0)
-            return;
-
-        ManufacturingLine ml = _manufacturingLines[0];
-
-        if (ml.IsProducing)
-            ml.StopProduction();
-        else
-            ml.StartProduction();
+        //Debug.Log(_inventory.GetQuantityOfProduct(product));
     }
 }

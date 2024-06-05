@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ManufacturingLine {
+//Obsolete
+public class ProductFactory {
 
-    public ManufacturingLine(Product product, float productionTimePerUnit, Quality quality, int batchSize, Transfer transfer) {
+    public ProductFactory(Product product, float productionTimePerUnit, Quality quality, int batchSize, Transfer transfer) {
         _productionTimer = new(productionTimePerUnit, PackageItems);
         _productionTimer.Repeat(true);
         _burstSendTimer = new(_burstSendDelay, InstantiateProducts);
