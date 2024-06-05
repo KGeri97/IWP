@@ -76,9 +76,9 @@ public class Transfer : MonoBehaviour
 
             GameManager.State = GameManager.GameState.Running;
 
-            ManufacturingLine manufacturingLine = new(TransferredProduct, 3f, Quality.Perfect, 3, this);
+            ProductFactory manufacturingLine = new(TransferredProduct, 3f, Quality.Perfect, 3, this);
             manufacturingLine.StartProduction();
-            _startNode.AddManufacturingLine(manufacturingLine);
+            //_startNode.AddManufacturingLine(manufacturingLine);
         }
     }
 
