@@ -12,7 +12,7 @@ public class WarehouseNodeUI : BaseNodeUI
 
     private void Update() {
         base.Update();
-        UpdateWarehouseText(transform.parent.GetComponent<Node>().Products[0].name, transform.parent.GetComponent<Node>().Inventory.Count.ToString());
+        //UpdateWarehouseText(transform.parent.GetComponent<Node>().Products[0].name, transform.parent.GetComponent<Node>().Inventory.Count.ToString());
     }
 
     public void UpdateWarehouseText(string productType, string productAmount)
