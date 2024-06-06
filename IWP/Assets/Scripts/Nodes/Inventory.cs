@@ -9,6 +9,15 @@ public class Inventory
     }
 
     private Dictionary<ProductType, Queue<Product>> _stock;
+
+    public List<ProductType> GetProductsInStock() {
+        List<ProductType> items = new();
+
+        foreach (KeyValuePair<ProductType, Queue<Product>> pair in _stock) {
+            items.Add(pair.Key);
+        }
+        return items;
+    }
     
     public int GetQuantityOfProduct(Product product) {
         if (!_stock.ContainsKey(product.Type))
