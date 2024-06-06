@@ -28,11 +28,13 @@ public class Factory : Node {
         _productionTimer.Update();
     }
 
+    [ContextMenu("Start production")]
     public void StartProduction() {
         _isProducing = true;
         _productionTimer.Start();
     }
 
+    [ContextMenu("Stop production")]
     public void StopProduction() {
         _isProducing = false;
         _productionTimer.Reset();
@@ -46,6 +48,7 @@ public class Factory : Node {
     }
 
     private void ItemProduced() {
+        Debug.Log($"Produced: {_productCreated.Type}");
         for (int i = 0; i < _batchSize; i++) {
             AddToInventory(_productCreated);
         }
