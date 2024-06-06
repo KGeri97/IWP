@@ -15,16 +15,16 @@ public class Factory : Node {
     public bool IsProducing { get { return _isProducing; } private set { } }
 
     private Timer _productionTimer;
-    private List<Transfer> _transfers = new();
-    private int _transferIterator;
 
-    private void Awake() {
+    public override void Awake() {
+        base.Awake();
         _productionTimer = new(_productionTime, ItemProduced);
         _productionTimer.Repeat(true);
         StartProduction();
     }
 
-    private void Update() {
+    public override void Update() {
+        base.Update();
         _productionTimer.Update();
     }
 
@@ -38,7 +38,7 @@ public class Factory : Node {
         _productionTimer.Reset();
     }
 
-    public virtual void ToggleProductFactory() {
+    public void ToggleProductFactory() {
         if (IsProducing)
             StopProduction();
         else
@@ -49,7 +49,7 @@ public class Factory : Node {
         for (int i = 0; i < _batchSize; i++) {
             AddToInventory(_productCreated);
         }
-        Debug.Log($"{_batchSize} {_productCreated.Type.ToString()} was created");
-        Debug.Log($"Currently in inventory {_inventory.GetQuantityOfProduct(_productCreated)}");
+        //Debug.Log($"{_batchSize} {_productCreated.Type.ToString()} was created");
+        //Debug.Log($"Currently in inventory {_inventory.GetQuantityOfProduct(_productCreated)}");
     }
 }
