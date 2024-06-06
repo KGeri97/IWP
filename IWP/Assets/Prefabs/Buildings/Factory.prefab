@@ -438,7 +438,7 @@ MonoBehaviour:
   _available: 1
   _ui: {fileID: 2561825025600113244}
   _model: {fileID: 8206387852080456218}
-  _productCreated: {fileID: -902761925879033305, guid: f0878d9ae906170498f217199b158f79, type: 3}
+  _productCreated: {fileID: -902761925879033305, guid: 9a39cafcef64b5a4baf4fe8f1ff4feb0, type: 3}
   _batchSize: 5
   _productionTime: 2
   _baseProductionQuality: 4
@@ -985,15 +985,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 44bd76eedd18d0b4c9db02b3a4769ff3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.01
+      value: 0.049999997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 44bd76eedd18d0b4c9db02b3a4769ff3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.01
+      value: 0.049999997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 44bd76eedd18d0b4c9db02b3a4769ff3, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.01
+      value: 0.049999997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 44bd76eedd18d0b4c9db02b3a4769ff3, type: 3}
       propertyPath: m_LocalPosition.x

@@ -8,7 +8,7 @@ public class Assembler : Node {
 
     [SerializeField]
     private Quality _baseProductionQuality;
-    private bool _isProducing;
+    private bool _isProducing = false;
     public bool IsProducing { get { return _isProducing; } private set { } }
 
     private Timer _productionTimer;
@@ -27,8 +27,9 @@ public class Assembler : Node {
         _productionTimer.Update();
     }
 
+    [ContextMenu("Start production")]
     public void StartProduction() {
-        if (IngredientCheck(_recipe)) {
+        if (!IngredientCheck(_recipe)) {
             Debug.LogError("There is not enough ingredients in the inventory to produce.");
             return;
         }
@@ -38,6 +39,7 @@ public class Assembler : Node {
         _productionTimer.Start();
     }
 
+    [ContextMenu("Stop production")]
     public void StopProduction() {
         _isProducing = false;
         _productionTimer.Reset();
@@ -71,6 +73,8 @@ public class Assembler : Node {
     /// <param name="recipe"></param>
     /// <returns></returns>
     private bool IngredientCheck(Recipe recipe) {
+        Debug.Log(Inventory.GetQuantityOfProduct(recipe.Ingredient1) >= recipe.Amount1 &&
+            Inventory.GetQuantityOfProduct(recipe.Ingredient2) >= recipe.Amount2);
         return 
             Inventory.GetQuantityOfProduct(recipe.Ingredient1) >= recipe.Amount1 &&
             Inventory.GetQuantityOfProduct(recipe.Ingredient2) >= recipe.Amount2;

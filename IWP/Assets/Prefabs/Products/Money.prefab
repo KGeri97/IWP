@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2333636965744157690}
   - component: {fileID: -902761925879033305}
   m_Layer: 0
-  m_Name: TestProduct
+  m_Name: Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,3 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d9e40c6d31df64ab076decb0bdcb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
+  _price: 1

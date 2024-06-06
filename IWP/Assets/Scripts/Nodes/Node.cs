@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Node : MonoBehaviour, INode {
+public abstract class Node : MonoBehaviour, INode {
 
     protected List<Transfer> _transfersOutbound = new();
     protected List<Transfer> _transfersIncoming = new();
@@ -75,7 +75,7 @@ public class Node : MonoBehaviour, INode {
     }
 
     private void SendItem() {
-        Debug.Log($"{_transfersOutbound.Count}");
+        //Debug.Log($"{_transfersOutbound.Count}");
         for (int i = 0; i < _transfersOutbound.Count; i++) {
             Transfer transfer = _transfersOutbound[_outboundTransferIterator];
             ProductType productType = transfer.TransferredProductType;
@@ -84,7 +84,7 @@ public class Node : MonoBehaviour, INode {
                 Product product = Instantiate(_inventory.TakeAnItem(productType), transform.position, Quaternion.identity, transfer.transform) ;
 
                 transfer.AddProductToDeliver(product);
-                Debug.Log($"Item is sent");
+                //Debug.Log($"Item is sent");
             }
 
             _outboundTransferIterator++;
