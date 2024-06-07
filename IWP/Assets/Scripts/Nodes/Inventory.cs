@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory
 {
+    public event Action OnInventoryChanged;
+    
     public Inventory() {
         _stock = new();
     }
@@ -39,6 +42,7 @@ public class Inventory
         }
 
         _stock[product.Type].Enqueue(product);
+        OnInventoryChanged?.Invoke();
     }
 
     public Product TakeAnItem(Product product) {
@@ -51,7 +55,8 @@ public class Inventory
         Product itemTaken = _stock[product.Type].Dequeue();
 
         RemoveKeyIfEmpty(product);
-
+        OnInventoryChanged?.Invoke();
+        
         return itemTaken;
     }
     public Product TakeAnItem(ProductType productType) {
@@ -64,7 +69,8 @@ public class Inventory
         Product itemTaken = _stock[productType].Dequeue();
 
         RemoveKeyIfEmpty(productType);
-
+        OnInventoryChanged?.Invoke();
+        
         return itemTaken;
     }
 
@@ -82,6 +88,7 @@ public class Inventory
         }
 
         RemoveKeyIfEmpty(product);
+        OnInventoryChanged?.Invoke();
 
         return takenItems;
     }
@@ -100,6 +107,7 @@ public class Inventory
         }
 
         RemoveKeyIfEmpty(productType);
+        OnInventoryChanged?.Invoke();
 
         return takenItems;
     }
@@ -107,11 +115,13 @@ public class Inventory
     private void RemoveKeyIfEmpty(Product product) {
         if (_stock[product.Type].Count == 0) {
             _stock.Remove(product.Type);
+            OnInventoryChanged?.Invoke();
         }
 
     }private void RemoveKeyIfEmpty(ProductType productType) {
         if (_stock[productType].Count == 0) {
             _stock.Remove(productType);
+            OnInventoryChanged?.Invoke();
         }
     }
 }
