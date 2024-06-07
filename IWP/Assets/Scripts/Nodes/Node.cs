@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,10 +25,12 @@ public class Node : MonoBehaviour, INode {
 
     private void OnEnable() {
         SelectionManager.OnNodeSelected += SetUIInactive;
+        BuildingManager.OnBuildingUIOpened += SetUIInactive;
     }
 
     private void OnDisable() {
         SelectionManager.OnNodeSelected -= SetUIInactive;
+        BuildingManager.OnBuildingUIOpened -= SetUIInactive;
     }
 
     public virtual void Awake() {
@@ -59,6 +62,11 @@ public class Node : MonoBehaviour, INode {
         else {
             SetUI(false);
         }
+    }
+
+    public bool GetUIState()
+    {
+        return _ui.activeSelf;
     }
 
     public void AddIncomingTransfer(Transfer transfer) {

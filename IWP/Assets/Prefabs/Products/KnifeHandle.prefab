@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2333636965744157690}
   - component: {fileID: -902761925879033305}
   m_Layer: 0
-  m_Name: KinfeHandle
+  m_Name: KnifeHandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

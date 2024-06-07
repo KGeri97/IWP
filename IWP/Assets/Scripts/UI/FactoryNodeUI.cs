@@ -5,18 +5,18 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class RefineryNodeUI : BaseNodeUI
+public class FactoryNodeUI : BaseNodeUI
 {
-    public TMP_Text refineryInfomationText;
-    public Image refineryProductIcon;
+    public TMP_Text factoryInfomationText;
+    public Image factoryProductIcon;
 
     public void UpdateRefineryText(string productType)
     {
-        refineryInfomationText.text = $"The refinery is producing: {productType}";
+        factoryInfomationText.text = $"The refinery is producing: {productType}";
     }
 
     public void UpdateRefineryImage(Image productIcon)
     {
-        refineryProductIcon = productIcon;
+        factoryProductIcon = productIcon;
     }
 }

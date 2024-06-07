@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuilidingManager : MonoBehaviour
+public class BuildingManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _buildings = new List<GameObject>();
     [SerializeField] private List<GameObject> _spawnLocations = new List<GameObject>();
@@ -19,6 +19,8 @@ public class BuilidingManager : MonoBehaviour
     private GameObject _currentSpawnLocationChosen;
     
     private bool _isInBuildingMode = false;
+    
+    public static event Action<GameObject> OnBuildingUIOpened;
 
     void Start()
     {
@@ -36,6 +38,16 @@ public class BuilidingManager : MonoBehaviour
                 SelectSpawnLocation();
             }
         }
+    }
+    
+    private void OnEnable() 
+    {
+        SelectionManager.OnNodeSelected += HandleTogglingBuildingPanelUI;
+    }
+
+    private void OnDisable()
+    {
+        SelectionManager.OnNodeSelected -= HandleTogglingBuildingPanelUI;
     }
 
     private void SelectSpawnLocation()
@@ -56,6 +68,7 @@ public class BuilidingManager : MonoBehaviour
                 _currentSpawnLocationChosen = hit.collider.gameObject;
                 _currentSpawnLocationChosen.GetComponent<MeshRenderer>().material = selectedMaterial;
                 ToggleBuildingPanelUI(true);
+                OnBuildingUIOpened?.Invoke(buildingPanelUI);
             }
         }
     }
@@ -83,6 +96,11 @@ public class BuilidingManager : MonoBehaviour
         }
     }
 
+    private void HandleTogglingBuildingPanelUI(GameObject obj)
+    {
+        ToggleBuildingPanelUI(obj.GetComponent<Node>().GetUIState());
+    }
+
     private void ToggleBuildingPanelUI(bool show)
     {
         buildingPanelUI.SetActive(show);
@@ -92,6 +110,9 @@ public class BuilidingManager : MonoBehaviour
     {
         _isInBuildingMode = !_isInBuildingMode;
         ToggleSpawnLocations(_isInBuildingMode);
+        
+        if (buildingPanelUI)
+            ToggleBuildingPanelUI(false);
 
         if (_isInBuildingMode)
         {
@@ -100,7 +121,10 @@ public class BuilidingManager : MonoBehaviour
         else
         {
             buildingButtonImage.color = Color.gray;
-            _currentSpawnLocationChosen.GetComponent<MeshRenderer>().material = previousMaterial;
+
+            if (_currentSpawnLocationChosen != null)
+                _currentSpawnLocationChosen.GetComponent<MeshRenderer>().material = previousMaterial;
+            
             _currentSpawnLocationChosen = null;
         }
     }

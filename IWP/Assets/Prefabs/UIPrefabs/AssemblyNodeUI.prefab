@@ -406,6 +406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transferPrefab: {fileID: 4368501040925132359, guid: 67506475d6941424dae05912f542660d, type: 3}
   _transferParent: {fileID: 0}
+  node: {fileID: 0}
   assemblyInformationText: {fileID: 5453670306462117279}
   assemblyProductIcon: {fileID: 5453670306062268439}
   assemblyAttachIcon:
