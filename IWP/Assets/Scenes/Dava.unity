@@ -3083,7 +3083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildings:
-  - {fileID: 1946265658840404251, guid: 7f5a9dc3c7c24b749b750ac066154da0, type: 3}
+  - {fileID: 1946265658840404251, guid: b521a0899a325bd44bf5d8820c6b8621, type: 3}
   - {fileID: 5894496615745343377, guid: a0ca55c083c510b4dacc5da72cca1470, type: 3}
   - {fileID: 7014576609371303895, guid: 1bcaad53d1ec08040bd3851ff2b647af, type: 3}
   - {fileID: 6017005740145185850, guid: 2451f1ad89e4d244987bfd1296fa07b2, type: 3}
@@ -6248,7 +6248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8996448789997636821, guid: fead38fcff2b50e458d1c6249f14a5ba, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 142.99998
+      value: 143
       objectReference: {fileID: 0}
     - target: {fileID: 8996448789997636821, guid: fead38fcff2b50e458d1c6249f14a5ba, type: 3}
       propertyPath: m_AnchoredPosition.y

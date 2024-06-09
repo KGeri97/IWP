@@ -21,28 +21,29 @@ public class WarehouseNodeUI : BaseNodeUI
     [SerializeField] private Transform contentTransform;
     [SerializeField] private GameObject item;
 
+    private Inventory _inventory;
     private List<GameObject> _currentItems = new List<GameObject>();
 
-    private void Start()
+    void Start()
     {
-        inventory = node.Inventory;
-        inventory.OnInventoryChanged += UpdateInventory;
-        inventory.OnInventoryChanged += UpdateProductTypeDropdown; 
+        _inventory = node.Inventory;
+        _inventory.OnInventoryChanged += UpdateInventory;
+        _inventory.OnInventoryChanged += UpdateProductTypeDropdown; 
         
         UpdateInventory();
         UpdateProductTypeDropdown();
     }
 
-    private void OnDestroy()
+    void OnDestroy()
     {
-        inventory.OnInventoryChanged -= UpdateInventory;
-        inventory.OnInventoryChanged -= UpdateProductTypeDropdown; 
+        _inventory.OnInventoryChanged -= UpdateInventory;
+        _inventory.OnInventoryChanged -= UpdateProductTypeDropdown; 
 
     }
 
     private void UpdateInventory()
     {
-        List<ProductType> productTypes = inventory.GetProductsInStock();
+        List<ProductType> productTypes = _inventory.GetProductsInStock();
 
         for (int i = _currentItems.Count - 1; i >= 0; i--)
         {
@@ -67,5 +68,17 @@ public class WarehouseNodeUI : BaseNodeUI
                 _currentItems.Add(gameObjectIcon);
             }
         }
+    }
+    
+    private void UpdateProductTypeDropdown()
+    {
+        productTypeDropdown.options.Clear();
+        List<ProductType> productTypes = _inventory.GetProductsInStock();
+        
+        foreach (ProductType productType in productTypes)
+        {
+            productTypeDropdown.options.Add(new TMP_Dropdown.OptionData(productType.ToString()));
+        }
+        productTypeDropdown.RefreshShownValue();
     }
 }

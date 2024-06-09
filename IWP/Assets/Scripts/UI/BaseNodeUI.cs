@@ -10,12 +10,10 @@ public class BaseNodeUI : MonoBehaviour
 {
     [SerializeField] private Transfer _transferPrefab;
     [SerializeField] private Transform _transferParent;
-    [SerializeField] private TMP_Dropdown _productTypeDropdown;
     [SerializeField] private Image _switch;
     
     public Node node;
-    public Inventory inventory;
-    
+    public TMP_Dropdown productTypeDropdown;
     private Camera _camera;
 
     private bool isOperating = false;
@@ -28,17 +26,8 @@ public class BaseNodeUI : MonoBehaviour
     void Start()
     {
         node = transform.parent.GetComponent<Node>();
-        inventory = node.Inventory;
-        inventory.OnInventoryChanged += UpdateProductTypeDropdown;
         
         _switch.color = Color.red;
-        
-        UpdateProductTypeDropdown();
-    }
-
-    void OnDestroy()
-    {
-        inventory.OnInventoryChanged -= UpdateProductTypeDropdown;
     }
 
     private void SetEventCamera()
@@ -49,15 +38,12 @@ public class BaseNodeUI : MonoBehaviour
 
     public void CloseUI()
     {
-        print($"hitting button");
         gameObject.SetActive(false);
     }
-
+    
+    
     public void AddTransfer()
     {
-        print($"hit button two");
-        ProductType selectedProductType = (ProductType) _productTypeDropdown.value;
-        
         Transfer transfer = Instantiate(_transferPrefab, transform.parent.position, Quaternion.identity, _transferParent);
         transfer.StartNode = node;
         //transfer.TransferredProduct = _node.Products[0];
@@ -69,16 +55,22 @@ public class BaseNodeUI : MonoBehaviour
         CloseUI();
     }
 
-    protected void UpdateProductTypeDropdown()
+    public void AddTransferWithProductType()
     {
-        _productTypeDropdown.options.Clear();
-        List<ProductType> productTypes = inventory.GetProductsInStock();
-        
-        foreach (ProductType productType in productTypes)
+        if (productTypeDropdown.options != null)
         {
-            _productTypeDropdown.options.Add(new TMP_Dropdown.OptionData(productType.ToString()));
+            ProductType selectedProductType = (ProductType) productTypeDropdown.value;
         }
-        _productTypeDropdown.RefreshShownValue();
+        
+        Transfer transfer = Instantiate(_transferPrefab, transform.parent.position, Quaternion.identity, _transferParent);
+        transfer.StartNode = node;
+        //transfer.TransferredProduct = _node.Products[0];
+        GameManager.State = GameManager.GameState.PlacingTransfer;
+
+        isOperating = true;
+        _switch.color = Color.green;
+        
+        CloseUI();
     }
 
     public void ToggleTransfer()
