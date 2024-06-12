@@ -964,6 +964,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FactoryNodeUI2
       objectReference: {fileID: 0}
+    - target: {fileID: 4982112202645953227, guid: d1dfcdf48fbe6554796f24a3326432df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1dfcdf48fbe6554796f24a3326432df, type: 3}
 --- !u!224 &5909400583667349937 stripped
