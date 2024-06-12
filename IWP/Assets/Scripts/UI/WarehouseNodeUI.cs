@@ -38,7 +38,6 @@ public class WarehouseNodeUI : BaseNodeUI
     {
         _inventory.OnInventoryChanged -= UpdateInventory;
         _inventory.OnInventoryChanged -= UpdateProductTypeDropdown; 
-
     }
 
     private void UpdateInventory()

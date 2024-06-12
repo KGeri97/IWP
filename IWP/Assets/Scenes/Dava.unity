@@ -1446,7 +1446,7 @@ BoxCollider:
   m_GameObject: {fileID: 405778789}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 5.1203446, y: 4.7400002, z: 0.20000003}
   m_Center: {x: 0, y: -0.00000071525574, z: 0}
@@ -1674,7 +1674,7 @@ BoxCollider:
   m_GameObject: {fileID: 430396485}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 4.933348, y: 2.9713247, z: 0.20000005}
   m_Center: {x: 0.11349988, y: 0.31933862, z: 9.853619e-16}
@@ -1870,7 +1870,7 @@ BoxCollider:
   m_GameObject: {fileID: 499673839}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 5.1503468, y: 4.7400007, z: 0.20000005}
   m_Center: {x: -0.000000059604645, y: 0, z: -0.0000009536743}
@@ -2835,7 +2835,7 @@ BoxCollider:
   m_GameObject: {fileID: 658309762}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 4.60031, y: 4.8496685, z: 0.20000003}
   m_Center: {x: 0, y: -0.15516476, z: 0.0000004747277}
@@ -3084,8 +3084,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buildings:
   - {fileID: 1946265658840404251, guid: b521a0899a325bd44bf5d8820c6b8621, type: 3}
-  - {fileID: 5894496615745343377, guid: a0ca55c083c510b4dacc5da72cca1470, type: 3}
-  - {fileID: 7014576609371303895, guid: 1bcaad53d1ec08040bd3851ff2b647af, type: 3}
+  - {fileID: 5894496615745343377, guid: 8727248b8dd1ae8478bd9229bf90e0b9, type: 3}
+  - {fileID: 7014576609371303895, guid: de21e5a00510b5f43ba0e9cf5fb790d0, type: 3}
   - {fileID: 6017005740145185850, guid: 2451f1ad89e4d244987bfd1296fa07b2, type: 3}
   _spawnLocations:
   - {fileID: 685304308}
@@ -6022,7 +6022,7 @@ BoxCollider:
   m_GameObject: {fileID: 1378763462}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 5.160348, y: 3.9100003, z: 0.20000003}
   m_Center: {x: 0, y: -0.0000011920929, z: 0}
@@ -6990,7 +6990,7 @@ BoxCollider:
   m_GameObject: {fileID: 1655481588}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 3.210216, y: 5.1600003, z: 0.20000003}
   m_Center: {x: 0, y: -0.00000023841858, z: 0}
@@ -9642,7 +9642,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Assembly
+          m_StringArgument: Assembly 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &7271474031732244912
@@ -10252,7 +10252,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Store
+          m_StringArgument: Store 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &7271474032888441919
@@ -10686,7 +10686,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Factory
+          m_StringArgument: Factory 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!224 &7271474033279240199
