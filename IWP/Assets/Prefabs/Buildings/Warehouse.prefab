@@ -1179,32 +1179,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4068601417883434788, guid: 8487e40acc4a4f94f9b2908aa1b2df1c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4068601417883434788, guid: 8487e40acc4a4f94f9b2908aa1b2df1c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4068601417883434788, guid: 8487e40acc4a4f94f9b2908aa1b2df1c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 5067567634765855891, guid: 8487e40acc4a4f94f9b2908aa1b2df1c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5067567634765855891, guid: 8487e40acc4a4f94f9b2908aa1b2df1c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5067567634765855891, guid: 8487e40acc4a4f94f9b2908aa1b2df1c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.6666666
       objectReference: {fileID: 0}
     - target: {fileID: 5283833997108370521, guid: 8487e40acc4a4f94f9b2908aa1b2df1c, type: 3}
       propertyPath: node
       value: 
       objectReference: {fileID: 4531369149192444073}
+    - target: {fileID: 5283833997108370521, guid: 8487e40acc4a4f94f9b2908aa1b2df1c, type: 3}
+      propertyPath: _transferParent
+      value: 
+      objectReference: {fileID: 5428716921178370168}
     - target: {fileID: 5283833997108370521, guid: 8487e40acc4a4f94f9b2908aa1b2df1c, type: 3}
       propertyPath: productTypeDropdown
       value: 
@@ -1215,7 +1219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6327533201843786613, guid: 8487e40acc4a4f94f9b2908aa1b2df1c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9147001711767894214, guid: 8487e40acc4a4f94f9b2908aa1b2df1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
