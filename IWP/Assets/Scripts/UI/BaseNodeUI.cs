@@ -88,4 +88,18 @@ public class BaseNodeUI : MonoBehaviour
             _switch.color = Color.green;
         }
     }
+
+    public string TextCorrection(ProductType productType)
+    {
+        if (productType.ToString() == $"KnifeBlade")
+        {
+            return $"Knife Blades";
+        }
+        if (productType.ToString() == $"KnifeHandle")
+        {
+            return $"Knife Handles";
+        }
+
+        return $"Nothing";
+    }
 }

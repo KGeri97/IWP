@@ -79,7 +79,11 @@ public class BuildingManager : MonoBehaviour
         
         if (buildingToBuy != null)
         {
-            Instantiate(buildingToBuy, _currentSpawnLocationChosen.transform.position, Quaternion.identity);
+            Vector3 editedSpawnLocation = new Vector3(_currentSpawnLocationChosen.transform.position.x,
+                _currentSpawnLocationChosen.transform.position.y + .5f,
+                _currentSpawnLocationChosen.transform.position.z);
+            
+            Instantiate(buildingToBuy, editedSpawnLocation, Quaternion.identity);
             _ownedBuildings.Add(buildingToBuy);
             _spawnLocations.Remove(_currentSpawnLocationChosen);
             _currentSpawnLocationChosen.SetActive(false);

@@ -1089,7 +1089,7 @@ PrefabInstance:
     - target: {fileID: 3205208765033992761, guid: 8cae3afc2fc48d047b13bc19dc07622c, type: 3}
       propertyPath: node
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 67233688888230694}
     - target: {fileID: 3205208765033992761, guid: 8cae3afc2fc48d047b13bc19dc07622c, type: 3}
       propertyPath: _transferParent
       value: 
