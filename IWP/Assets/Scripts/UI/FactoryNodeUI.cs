@@ -14,6 +14,7 @@ public class FactoryNodeUI : BaseNodeUI
     public Image factoryProductIcon;
 
     private ProductType _productType;
+    private Factory _factory;
 
     void Awake()
     {
@@ -22,7 +23,8 @@ public class FactoryNodeUI : BaseNodeUI
             Debug.LogError($"No factory script attached to {transform.parent.name}");
         }
 
-        _productType = transform.parent.GetComponent<Factory>().GetFactoryProductType();
+        _factory = transform.parent.GetComponent<Factory>();
+        _productType = _factory.GetFactoryProductType();
         
         UpdateFactoryImage(_productType);
         UpdateFactoryText();

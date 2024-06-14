@@ -1770,7 +1770,7 @@ GameObject:
   - component: {fileID: 6741359624939109972}
   - component: {fileID: 5283833997108370521}
   m_Layer: 0
-  m_Name: WarehouseNodeUI
+  m_Name: WarehouseNodeUI Renamed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
