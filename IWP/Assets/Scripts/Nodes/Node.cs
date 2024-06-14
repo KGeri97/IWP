@@ -73,7 +73,7 @@ public abstract class Node : MonoBehaviour, INode {
         _transfersIncoming.Add(transfer);
     }
 
-    public void AddOutboundTransfer(Transfer transfer) {
+    public virtual void AddOutboundTransfer(Transfer transfer) {
         _transfersOutbound.Add(transfer);
     }
 

@@ -13,7 +13,7 @@ public class AssemblyItem
     public ProductType ProductType;
     public Image Image;
     public TMP_Text Text;
-    public int AmountNeeded;
+    public int AmountNeeded; //Assembly is working with a recipe stored in a scriptable object can reference it from there
     public bool HasMeetRequirements;
 }
 

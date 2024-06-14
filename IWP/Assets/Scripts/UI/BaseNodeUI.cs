@@ -57,7 +57,7 @@ public class BaseNodeUI : MonoBehaviour
 
     public void AddTransferWithProductType()
     {
-        ProductType selectedProductType = ProductType.KnifeHandle;
+        ProductType selectedProductType = ProductType.Default;
         if (productTypeDropdown.options != null)
         {
             selectedProductType = (ProductType) productTypeDropdown.value;

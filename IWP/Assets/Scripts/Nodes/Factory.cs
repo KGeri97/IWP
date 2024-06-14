@@ -28,6 +28,12 @@ public class Factory : Node {
         _productionTimer.Update();
     }
 
+    //Only as long as product transferred cannot be chosen
+    public override void AddOutboundTransfer(Transfer transfer) {
+        base.AddOutboundTransfer(transfer);
+        transfer.TransferredProductType = transfer.TransferredProductType > ProductType.Default ? _productCreated.Type : transfer.TransferredProductType;
+    }
+
     [ContextMenu("Start production")]
     public void StartProduction() {
         _isProducing = true;

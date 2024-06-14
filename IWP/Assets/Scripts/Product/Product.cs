@@ -32,6 +32,7 @@ public enum Quality {
 }
 
 public enum ProductType {
+    Default,
     Money,
     KnifeBlade,
     KnifeHandle,
