@@ -11,11 +11,11 @@ public class StoreNodeUI : BaseNodeUI
 
     void Start()
     {
-        UpdateShopUIText($"0");
+        //UpdateShopUIText($"0");
     }
 
     public void UpdateShopUIText(string profitAmount)
     {
-        shopInformationText.text = $"The store is currently earning you: {profitAmount}";
+        shopInformationText.text = $"Currently earning: {profitAmount}";
     }
 }
