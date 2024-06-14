@@ -9,9 +9,10 @@ public class Transfer : MonoBehaviour
     public Node StartNode { get { return _startNode; } set { _startNode = value; } }
     [SerializeField]
     private Node _endNode;
+    public Node EndNode { get { return _endNode; } set { _endNode = value; } }
+    private ProductType _transferredProductType = ProductType.KnifeHandle;
+    public ProductType TransferredProductType { get { return _transferredProductType; } set { _transferredProductType = value; } }
     [SerializeField]
-    private Product _transferredProduct;
-    public Product TransferredProduct { get { return _transferredProduct; } set { _transferredProduct = value; } }
     private float _transferTime;
     private LineRenderer _lineRenderer;
     [SerializeField]
@@ -27,13 +28,12 @@ public class Transfer : MonoBehaviour
 
     }
 
-
     private List<ProductProgress> _productsInTransfer = new();
-
-    private float _elapsedTime = 0;
 
     private void Awake() {
         _lineRenderer = GetComponent<LineRenderer>();
+        _lineRenderer.startWidth = GlobalConstants.NODE_SCALE * 0.75f;
+        _lineRenderer.endWidth = GlobalConstants.NODE_SCALE * 0.75f;
     }
 
     private void OnEnable() {
@@ -54,7 +54,7 @@ public class Transfer : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100, _raycastLayermask)) {
-                _lineRenderer.SetPosition(1, hit.point/* + Vector3.up * _startNode.transform.position.y*/);
+                _lineRenderer.SetPosition(1, hit.point + Vector3.up * _startNode.transform.position.y);
             }
         }
 
@@ -75,18 +75,14 @@ public class Transfer : MonoBehaviour
             SelectionManager.OnNothingSelected -= CancelTransferCreation;
 
             GameManager.State = GameManager.GameState.Running;
-
-            ManufacturingLine manufacturingLine = new(TransferredProduct, 3f, Quality.Perfect, 3, this);
-            manufacturingLine.StartProduction();
-            _startNode.AddManufacturingLine(manufacturingLine);
         }
     }
 
     private void CancelTransferCreation() {
         if (!_endNode) {
             GameManager.State = GameManager.GameState.Running;
-            //Destroy(gameObject);
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 
@@ -104,6 +100,7 @@ public class Transfer : MonoBehaviour
 
         foreach (ProductProgress package in productsToRemove) {
             _productsInTransfer.Remove(package);
+            Destroy(package.Product.gameObject);
         }
     }
 
