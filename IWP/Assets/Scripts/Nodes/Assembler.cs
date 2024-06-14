@@ -45,7 +45,7 @@ public class Assembler : Node {
         _productionTimer.Reset();
     }
 
-    public void ToggleProductFactory() {
+    public void ToggleProductionAssembler() {
         if (IsProducing)
             StopProduction();
         else

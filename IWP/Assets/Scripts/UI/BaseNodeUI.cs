@@ -75,7 +75,8 @@ public class BaseNodeUI : MonoBehaviour
         CloseUI();
     }
 
-    public void ToggleTransfer()
+    //This should also derive from either the assembly or factory as it has isProducing
+    public virtual void ToggleTransfer()
     {
         if (isOperating)
         {

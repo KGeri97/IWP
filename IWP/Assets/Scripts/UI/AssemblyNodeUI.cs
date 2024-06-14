@@ -21,6 +21,8 @@ public class AssemblyNodeUI : BaseNodeUI
 {
     [SerializeField] private List<AssemblyItem> _assemblyItemsNeeded = new List<AssemblyItem>();
     [SerializeField] private AssemblyItem _assemblyItemMade;
+    [SerializeField]
+    private Assembler _assembler;
     public int amountOfKnifesProduced;
     public bool canProduceKnives = false;
     
@@ -32,11 +34,18 @@ public class AssemblyNodeUI : BaseNodeUI
         _inventory.OnInventoryChanged += UpdateAssemblyInformation;
         
         UpdateAssemblyInformation();
+
+        _assembler = transform.parent.GetComponent<Assembler>();
     }
 
     void OnDestroy()
     {
         _inventory.OnInventoryChanged -= UpdateAssemblyInformation;
+    }
+
+    public override void ToggleTransfer() {
+        base.ToggleTransfer();
+        _assembler.ToggleProductionAssembler();
     }
 
     private void UpdateAssemblyInformation()
@@ -91,5 +100,6 @@ public class AssemblyNodeUI : BaseNodeUI
                 canProduceKnives = true;
             }
         }
+
     }
 }

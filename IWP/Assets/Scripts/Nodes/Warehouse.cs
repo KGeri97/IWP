@@ -4,4 +4,7 @@ using UnityEngine;
 
 public class Warehouse : Node
 {
+    private void Start() {
+        
+    }
 }

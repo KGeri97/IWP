@@ -11,7 +11,14 @@ public class FactoryNodeUI : BaseNodeUI
     public List<Sprite> productIcons = new List<Sprite>();
     public TMP_Text factoryInfomationText;
     public Image factoryProductIcon;
-    
+    [SerializeField]
+    private Factory _factory;
+
+    private void Start() {
+
+        _factory = transform.parent.GetComponent<Factory>();
+    }
+
     public void UpdateFactoryImage(ProductType productType)
     {
         Sprite sprite = productIcons.FirstOrDefault(a => a.name == productType.ToString());
@@ -41,5 +48,10 @@ public class FactoryNodeUI : BaseNodeUI
         }
         
         factoryInfomationText.text = $"Producing: {textCorrection}";
+    }
+
+    public override void ToggleTransfer() {
+        base.ToggleTransfer();
+        _factory.ToggleProductionFactory();
     }
 }

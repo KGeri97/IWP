@@ -84,20 +84,24 @@ public abstract class Node : MonoBehaviour, INode {
 
     private void SendItem() {
         //Debug.Log($"{_transfersOutbound.Count}");
-        for (int i = 0; i < _transfersOutbound.Count; i++) {
-            Transfer transfer = _transfersOutbound[_outboundTransferIterator];
-            ProductType productType = transfer.TransferredProductType;
+        if (_transfersOutbound.Count == 0)
+            return;
 
-            if (_inventory.GetQuantityOfProduct(productType) > 0) {
-                Product product = Instantiate(_inventory.TakeAnItem(productType), transform.position, Quaternion.identity, transfer.transform) ;
+        Transfer transfer = _transfersOutbound[_outboundTransferIterator];
+        ProductType productType = transfer.TransferredProductType;
 
-                transfer.AddProductToDeliver(product);
-                //Debug.Log($"Item is sent");
-            }
+        if (_inventory.GetQuantityOfProduct(productType) > 0) {
+            Product product = Instantiate(_inventory.TakeAnItem(productType), transform.position, Quaternion.identity, transfer.transform) ;
 
-            _outboundTransferIterator++;
-            if (_outboundTransferIterator >= _transfersOutbound.Count - 1)
-                _outboundTransferIterator = 0;
+            transfer.AddProductToDeliver(product);
+            //Debug.Log($"Item is sent");
         }
+
+        //Debug.Log(_transfersOutbound.Count);
+        //Debug.Log(_outboundTransferIterator);
+
+        _outboundTransferIterator++;
+        if (_outboundTransferIterator >= _transfersOutbound.Count)
+            _outboundTransferIterator = 0;
     }
 }

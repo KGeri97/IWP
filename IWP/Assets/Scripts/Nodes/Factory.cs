@@ -46,7 +46,7 @@ public class Factory : Node {
         _productionTimer.Reset();
     }
 
-    public void ToggleProductFactory() {
+    public void ToggleProductionFactory() {
         if (IsProducing)
             StopProduction();
         else

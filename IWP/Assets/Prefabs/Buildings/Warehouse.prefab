@@ -843,7 +843,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2922257334014273704}
-  - component: {fileID: 4531369149192444073}
+  - component: {fileID: 8106197618224964574}
   m_Layer: 0
   m_Name: Warehouse
   m_TagString: Untagged
@@ -869,7 +869,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4531369149192444073
+--- !u!114 &8106197618224964574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -878,7 +878,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6017005740145185850}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26c510b1de653b64198dc35fb82b1051, type: 3}
+  m_Script: {fileID: 11500000, guid: f503fb40d89b01d4d884e0c4763b887d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _available: 1
@@ -1204,7 +1204,7 @@ PrefabInstance:
     - target: {fileID: 5283833997108370521, guid: 8487e40acc4a4f94f9b2908aa1b2df1c, type: 3}
       propertyPath: node
       value: 
-      objectReference: {fileID: 4531369149192444073}
+      objectReference: {fileID: 0}
     - target: {fileID: 5283833997108370521, guid: 8487e40acc4a4f94f9b2908aa1b2df1c, type: 3}
       propertyPath: _transferParent
       value: 
