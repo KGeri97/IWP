@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,43 +12,49 @@ public class FactoryNodeUI : BaseNodeUI
     public List<Sprite> productIcons = new List<Sprite>();
     public TMP_Text factoryInfomationText;
     public Image factoryProductIcon;
-    [SerializeField]
-    private Factory _factory;
 
-    private void Start() {
+    private ProductType _productType;
 
-        _factory = transform.parent.GetComponent<Factory>();
+    void Awake()
+    {
+        if (transform.parent.GetComponent<Factory>() == null)
+        {
+            Debug.LogError($"No factory script attached to {transform.parent.name}");
+        }
+
+        _productType = transform.parent.GetComponent<Factory>().GetFactoryProductType();
+        
+        UpdateFactoryImage(_productType);
+        UpdateFactoryText();
+        UpdateProductTypeDropdown();
     }
 
-    public void UpdateFactoryImage(ProductType productType)
+    private void UpdateFactoryImage(ProductType productType)
     {
         Sprite sprite = productIcons.FirstOrDefault(a => a.name == productType.ToString());
 
         if (sprite == null)
         {
             Debug.LogError($"The {sprite} is not valid. Entered in the wrong product type. Only KnifeBlade and KnifeHandle is valid.");
-            return;
+            return; 
         }
         
         factoryProductIcon.sprite = sprite;
-        
-        UpdateFactoryText(productType.ToString());
     }
     
-    private void UpdateFactoryText(string productType)
+    private void UpdateFactoryText()
     {
-        string textCorrection = "Nothing";
+        factoryInfomationText.text = $"Producing: {TextCorrection(_productType)}";
+    }
+    
+    private void UpdateProductTypeDropdown()
+    {
+        productTypeDropdown.options.Clear();
 
-        if (productType == $"KnifeBlade")
-        {
-            textCorrection = $"Knife Blades";
-        }
-        else if (productType == $"KnifeHandle")
-        {
-            textCorrection = $"Knife Handles";
-        }
+        productTypeDropdown.options.Add(new TMP_Dropdown.OptionData(TextCorrection(_productType)));
+        productTypeDropdown.options.Add(new TMP_Dropdown.OptionData($"Money"));
         
-        factoryInfomationText.text = $"Producing: {textCorrection}";
+        productTypeDropdown.RefreshShownValue();
     }
 
     public override void ToggleTransfer() {

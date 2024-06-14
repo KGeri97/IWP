@@ -16,6 +16,11 @@ public class Factory : Node {
 
     private Timer _productionTimer;
 
+    public ProductType GetFactoryProductType()
+    {
+        return _productCreated.Type;
+    }
+
     public override void Awake() {
         base.Awake();
         _productionTimer = new(_productionTime, ItemProduced);

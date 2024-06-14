@@ -843,7 +843,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2922257334014273704}
-  - component: {fileID: 8106197618224964574}
+  - component: {fileID: 4172305685240177862}
   m_Layer: 0
   m_Name: Warehouse
   m_TagString: Untagged
@@ -869,7 +869,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8106197618224964574
+--- !u!114 &4172305685240177862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1204,7 +1204,7 @@ PrefabInstance:
     - target: {fileID: 5283833997108370521, guid: 8487e40acc4a4f94f9b2908aa1b2df1c, type: 3}
       propertyPath: node
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4172305685240177862}
     - target: {fileID: 5283833997108370521, guid: 8487e40acc4a4f94f9b2908aa1b2df1c, type: 3}
       propertyPath: _transferParent
       value: 
@@ -1213,6 +1213,10 @@ PrefabInstance:
       propertyPath: productTypeDropdown
       value: 
       objectReference: {fileID: 5418819356602124619}
+    - target: {fileID: 5765109697559057473, guid: 8487e40acc4a4f94f9b2908aa1b2df1c, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6327533201843786613, guid: 8487e40acc4a4f94f9b2908aa1b2df1c, type: 3}
       propertyPath: m_Name
       value: WarehouseNodeUI

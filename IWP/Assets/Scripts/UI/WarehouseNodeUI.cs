@@ -40,9 +40,19 @@ public class WarehouseNodeUI : BaseNodeUI
         _inventory.OnInventoryChanged -= UpdateProductTypeDropdown; 
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            UpdateInventory();
+            UpdateProductTypeDropdown();
+        }
+    }
+
     private void UpdateInventory()
     {
         List<ProductType> productTypes = _inventory.GetProductsInStock();
+        Debug.Log("Updating Inventory. Products in stock: " + string.Join(", ", productTypes));
 
         for (int i = _currentItems.Count - 1; i >= 0; i--)
         {
@@ -51,6 +61,7 @@ public class WarehouseNodeUI : BaseNodeUI
             {
                 Destroy(_currentItems[i]);
                 _currentItems.RemoveAt(i);
+                Debug.Log("Destroyed item: " + iconController.GetProductType());
             }
         }
         
@@ -65,6 +76,7 @@ public class WarehouseNodeUI : BaseNodeUI
                 GameObject gameObjectIcon = Instantiate(item, contentTransform);
                 gameObjectIcon.GetComponent<InventoryIconController>().SetInventoryIcon(node, productType, sprite);
                 _currentItems.Add(gameObjectIcon);
+                Debug.Log("Spawned new item: " + productType);
             }
         }
     }
