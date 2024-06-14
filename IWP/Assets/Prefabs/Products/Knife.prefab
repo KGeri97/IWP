@@ -111,4 +111,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 3
+  _icon: {fileID: 21300000, guid: 0a90e1bf9d9c2e84fbf7701c0331b808, type: 3}
   _price: 6

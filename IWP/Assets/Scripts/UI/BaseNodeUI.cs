@@ -57,13 +57,15 @@ public class BaseNodeUI : MonoBehaviour
 
     public void AddTransferWithProductType()
     {
+        ProductType selectedProductType = ProductType.KnifeHandle;
         if (productTypeDropdown.options != null)
         {
-            ProductType selectedProductType = (ProductType) productTypeDropdown.value;
+            selectedProductType = (ProductType) productTypeDropdown.value;
         }
         
         Transfer transfer = Instantiate(_transferPrefab, transform.parent.position, Quaternion.identity, _transferParent);
         transfer.StartNode = node;
+        transfer.TransferredProductType = selectedProductType;
         //transfer.TransferredProduct = _node.Products[0];
         GameManager.State = GameManager.GameState.PlacingTransfer;
 

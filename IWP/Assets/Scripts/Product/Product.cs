@@ -11,6 +11,10 @@ public class Product : MonoBehaviour {
     public ProductType Type { get { return _type; } }
 
     [SerializeField]
+    private Sprite _icon;
+    public Sprite Icon { get { return _icon;  } }
+
+    [SerializeField]
     private int _price;
     public int Price { get { return _price; } }
 
