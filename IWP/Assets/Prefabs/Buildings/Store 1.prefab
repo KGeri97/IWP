@@ -868,6 +868,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8528152736608736313}
   - component: {fileID: 1388627297852045737}
+  - component: {fileID: 4234347426524134558}
   m_Layer: 0
   m_Name: Warehouse
   m_TagString: Untagged
@@ -913,6 +914,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 16.038525, y: 11.97072, z: 13.141758}
   m_Center: {x: 0.0000035762787, y: 5.947609, z: -0.4930699}
+--- !u!114 &4234347426524134558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9012201028923592323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98e241df349cc84bb71c8db06df138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: A store, used to sell the finished knives
 --- !u!1 &9025576884553399458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,7 +1103,7 @@ PrefabInstance:
     - target: {fileID: 3205208765033992761, guid: 8cae3afc2fc48d047b13bc19dc07622c, type: 3}
       propertyPath: node
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 67233688888230694}
     - target: {fileID: 3205208765033992761, guid: 8cae3afc2fc48d047b13bc19dc07622c, type: 3}
       propertyPath: _transferParent
       value: 

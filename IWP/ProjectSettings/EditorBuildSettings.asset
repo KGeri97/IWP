@@ -17,7 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Controls.unity
     guid: 246bf5715312db940838a97598f465a7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameScene.unity
     guid: 0cafef9ca660daa4a83ed796ac77e335
+  - enabled: 1
+    path: Assets/Scenes/Dava 1.unity
+    guid: 108e599791cb53a41868c92cdeb632d3
   m_configObjects: {}
