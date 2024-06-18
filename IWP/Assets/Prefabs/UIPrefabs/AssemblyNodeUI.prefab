@@ -428,7 +428,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &5453670305964992365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,6 +470,7 @@ MonoBehaviour:
     Text: {fileID: 0}
     AmountNeeded: 0
     HasMeetRequirements: 0
+  _assembler: {fileID: 0}
   amountOfKnifesProduced: 0
   canProduceKnives: 0
 --- !u!1 &5453670306002314817
