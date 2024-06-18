@@ -12,6 +12,7 @@ public class InventoryIconController : MonoBehaviour
     
     private Node _node;
     private ProductType _productType;
+    [SerializeField]
     private Image _image;
 
     private bool _isSetUp;
@@ -41,7 +42,7 @@ public class InventoryIconController : MonoBehaviour
 
     private void UpdateAmountText()
     {
-        int quantity = _node.GetComponent<Inventory>().GetQuantityOfProduct(_productType);
+        int quantity = _node.Inventory.GetQuantityOfProduct(_productType);
         text.text = quantity.ToString();
     }
 }

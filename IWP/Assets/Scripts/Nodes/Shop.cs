@@ -15,6 +15,10 @@ public class Shop : Node {
         CustomerManager.ItemPurchased -= Checkout;
     }
 
+    public override void Awake() {
+        base.Awake();
+    }
+
     private void Checkout() {
         int itemTypeCount = _inventory.GetProductsInStock().Count;
 

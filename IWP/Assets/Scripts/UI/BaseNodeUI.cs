@@ -60,7 +60,8 @@ public class BaseNodeUI : MonoBehaviour
         ProductType selectedProductType = ProductType.Default;
         if (productTypeDropdown.options != null)
         {
-            selectedProductType = (ProductType) productTypeDropdown.value;
+            Debug.Log($"productTypeDropdown.value {productTypeDropdown.value}");
+            selectedProductType = Enum.Parse<ProductType>(productTypeDropdown.options[productTypeDropdown.value].text);
         }
         
         Transfer transfer = Instantiate(_transferPrefab, transform.parent.position, Quaternion.identity, _transferParent);

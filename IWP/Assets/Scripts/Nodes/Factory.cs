@@ -62,6 +62,7 @@ public class Factory : Node {
         //Debug.Log($"Produced: {_productCreated.Type}");
         for (int i = 0; i < _batchSize; i++) {
             AddToInventory(_productCreated);
+            Debug.Log($"{_productCreated.Type} has been made.");
         }
         //Debug.Log($"{_batchSize} {_productCreated.Type.ToString()} was created");
         //Debug.Log($"Currently in inventory {_inventory.GetQuantityOfProduct(_productCreated)}");

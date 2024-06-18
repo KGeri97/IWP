@@ -96,6 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d9e40c6d31df64ab076decb0bdcb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 2
+  _type: 3
   _icon: {fileID: 21300000, guid: e2f036a7d15828049a85ce7125b8cce0, type: 3}
   _price: 2

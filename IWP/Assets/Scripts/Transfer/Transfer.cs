@@ -10,6 +10,7 @@ public class Transfer : MonoBehaviour
     [SerializeField]
     private Node _endNode;
     public Node EndNode { get { return _endNode; } set { _endNode = value; } }
+    [SerializeField]
     private ProductType _transferredProductType = ProductType.KnifeHandle;
     public ProductType TransferredProductType { get { return _transferredProductType; } set { _transferredProductType = value; } }
     [SerializeField]

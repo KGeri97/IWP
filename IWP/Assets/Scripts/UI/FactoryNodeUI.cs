@@ -16,7 +16,7 @@ public class FactoryNodeUI : BaseNodeUI
     private ProductType _productType;
     private Factory _factory;
 
-    void Awake()
+    void Start()
     {
         if (transform.parent.GetComponent<Factory>() == null)
         {
@@ -53,7 +53,7 @@ public class FactoryNodeUI : BaseNodeUI
     {
         productTypeDropdown.options.Clear();
 
-        productTypeDropdown.options.Add(new TMP_Dropdown.OptionData(TextCorrection(_productType)));
+        productTypeDropdown.options.Add(new TMP_Dropdown.OptionData(_productType.ToString()));
         productTypeDropdown.options.Add(new TMP_Dropdown.OptionData($"Money"));
         
         productTypeDropdown.RefreshShownValue();
